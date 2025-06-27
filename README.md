@@ -30,6 +30,14 @@ This is a simple React.js web application that demonstrates how to create a secu
 | Routing       | React Router DOM                                                     |
 | Linting       | ESLint                                                               |
 
+## 🛠️ Deployment & OPS Stack
+
+This project uses the following tools for deployment and operational support:
+
+- **GitHub Actions** – CI/CD pipeline for build and deployment automation
+- **Bunny CDN** – Proxy for routes and caching layer for static/dynamic content
+- **Cloudflare** – DNS for reverse proxy, firewall, and DDoS protection
+
 ## 📂 Project Structure (simplified)
 
 ```
@@ -53,5 +61,5 @@ src/
 
 ## ✍️ Author
 
-Made with ❤️ by Jo
+Made with ❤️ by Jo  
 [LinkedIn](https://www.linkedin.com/in/joshua-ather)
