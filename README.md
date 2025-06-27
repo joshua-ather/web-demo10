@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# React Login App with JWT & GraphQL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React.js web application that demonstrates how to create a secure login using JWT (JSON Web Token), and fetch data from a GraphQL API.
 
-Currently, two official plugins are available:
+[🌐 Live Demo](https://demo10.icatchu.id)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> 🧪 **Demo Credentials**  
+> Username: `admin`  
+> Password: `admin123`
 
-## Expanding the ESLint configuration
+## 🔧 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🔐 Secure login with JWT authentication
+- 📡 Fetch data using REST APIs & GraphQL
+- 🧭 Client-side routing with `react-router-dom`
+- 💅 Stylish UI using Ant Design
+- ⚡ Fast development with Vite + TypeScript
+- 🧠 State/data management with Apollo Client and React Query
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Tech Stack
+
+| Category      | Library                                                              |
+| ------------- | -------------------------------------------------------------------- |
+| Frontend      | [React 19](https://react.dev/)                                       |
+| Build Tool    | [Vite](https://vite.dev/)                                            |
+| Language      | TypeScript                                                           |
+| UI Components | [Ant Design](https://ant.design/)                                    |
+| Data Fetching | [Apollo Client](https://www.apollographql.com/docs/react/) (GraphQL) |
+| HTTP Client   | [Axios](https://axios-http.com/)                                     |
+| Routing       | React Router DOM                                                     |
+| Linting       | ESLint                                                               |
+
+## 📂 Project Structure (simplified)
+
+```
+src/
+├── apis/ # REST and GraphQL API calls
+├── auth/ # Authentication logic and route protection (middleware)
+├── components/ # Reusable UI components
+├── layouts/ # Page layouts
+├── pages/ # Pages (Login, Dashboard, etc.)
+├── App.tsx # Root component
+└── main.tsx # App entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔐 Authentication
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- This app uses JWT-based authentication:
+- User logs in with credentials (e.g., email & password)
+- The backend returns a signed JWT token
+- Token is stored securely (e.g., in HTTP-only cookie)
+- Token is attached to GraphQL headers for secure requests
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## ✍️ Author
+
+Made with ❤️ by Jo
+[LinkedIn](https://www.linkedin.com/in/joshua-ather)
