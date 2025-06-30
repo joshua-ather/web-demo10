@@ -1,7 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { setAccessToken } from "../apis/api";
-import { refreshToken, logout as logoutApi } from '../apis/auth';
-import { getUser } from '../apis/graphql';
+import { refreshToken, logout as logoutApi } from "../apis/auth";
+import { getUser } from "../apis/graphql";
+import { getCookie } from "../utils/cookies";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 interface AuthContextType {
   token: string | null;
@@ -17,7 +20,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const isAuthenticated = !!token;
 
   const login = async (token: string) => {
@@ -50,15 +53,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
     };
 
-    if (!token) {
+    if (!token && getCookie("sid_session")) {
+      setLoading(true);
       restore();
     }
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return <Spin indicator={<LoadingOutlined spin />} size="default" />;
 
   return (
-    <AuthContext.Provider value={{ token, user, login, logout, isAuthenticated, loading }}>
+    <AuthContext.Provider
+      value={{ token, user, login, logout, isAuthenticated, loading }}
+    >
       {children}
     </AuthContext.Provider>
   );
